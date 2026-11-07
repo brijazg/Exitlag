@@ -1,19 +1,43 @@
-name: CI
+name: Documentation CI
+
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docs-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
+    name: Install and build documentation
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v2
+      - name: Check out repository
+        uses: actions/checkout@v4
         with:
           lfs: true
-      - uses: actions/setup-node@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
-      - name: install dependencies
-        run: yarn install
-      - name: build
+          node-version: 18.20.8
+          cache: yarn
+
+      - name: Set up Yarn
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --non-interactive
+
+      - name: Build documentation
         run: yarn build
