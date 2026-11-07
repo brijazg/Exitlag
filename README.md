@@ -1,52 +1,72 @@
-# Manta Network Documentations
+# Manta Network Documentation
 
-Manta Network is the multi-modular ecosystem for zero-knowledge (ZK) applications.Content in [docs.manta.network](https://docs.manta.network). This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This repository contains the Manta Network documentation website, built with [Docusaurus 2](https://docusaurus.io/). The published documentation is hosted at [docs.manta.network](https://docs.manta.network).
 
-## Installation
+> **Repository note:** this repository is a fork/customized copy of the Manta Network documentation project. It is not the ExitLag VPN application or its source code.
 
-```console
-yarn install
+## Current project version
+
+**0.2.0** — see [RELEASE-0.2.0.md](RELEASE-0.2.0.md) for the maintenance update notes.
+
+## Requirements
+
+- Node.js 18.14 or newer (CI currently uses Node.js 18.20.8)
+- Yarn Classic (1.x)
+- Git
+
+## Install dependencies
+
+From the repository root:
+
+```bash
+corepack enable
+yarn install --frozen-lockfile
 ```
 
-## Local Development
+If you intentionally change dependencies, update and commit `yarn.lock` with the same change.
 
-```console
+## Run locally
+
+```bash
 yarn start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+Docusaurus starts a local development server and refreshes the page as files change.
 
-## Build
+## Build and preview
 
-```console
+```bash
 yarn build
+yarn serve
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+The production site is generated in the `build/` directory. The build command also checks broken links according to the configuration in `docusaurus.config.js`.
+
+## Translations
+
+The configured locales are English (`en`, default) and Chinese (`cn`).
+
+Start the Chinese site locally with:
+
+```bash
+yarn start --locale cn
+```
+
+Translation content belongs under the matching Docusaurus locale directory. Do not add another locale without updating the `i18n.locales` configuration.
 
 ## Deployment
 
-```console
-GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
-```
+The Docusaurus deployment configuration currently targets the official Manta documentation site and repository. Do not run `yarn deploy` from a personal fork unless you are an authorized maintainer and have confirmed the deployment target and credentials.
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+For normal contributions, create a branch, run the production build, and open a pull request against `main`.
 
-## Translation
+## Continuous integration
 
-For the translation, we're using the [Translate plugin data](https://docusaurus.io/docs/i18n/tutorial#translate-plugin-data)  
+GitHub Actions runs the dependency installation and production build on pushes and pull requests targeting `main`. The workflow uses a pinned Node.js 18 release, Yarn's frozen lockfile mode, read-only repository permissions, and a bounded job timeout.
 
-Commands
+## Contributing
 
-Run the Italian version
-
-```
-yarn run start --locale it
-```
-
-Or cn
-```
-yarn run start --locale cn
-```
-
-Translate the markdown under **i18n/it** for the italian language.
+- Keep documentation links and sidebar entries in sync.
+- Verify code samples and network details against current official Manta sources before changing them.
+- Never commit private keys, seed phrases, access tokens, or personal credentials.
+- Include the affected page and steps to reproduce when reporting a build or documentation issue.
